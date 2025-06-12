@@ -36,7 +36,7 @@ class MessageDialog(Gtk.Dialog):
         headerbar.pack_start(
             Gtk.Image().new_from_pixbuf(
                 GdkPixbuf.Pixbuf().new_from_file_at_size(
-                    os.path.join(base_dir, "images/arcolinux.png"), 16, 16
+                    os.path.join(base_dir, "images/bal.png"), 16, 16
                 )
             )
         )

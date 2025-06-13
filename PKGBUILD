@@ -1,36 +1,21 @@
 # Maintainer: minhmc2007 <quangminh21072010@gmail.com>
-# Contributor: Erik Dubois <erik.dubois@arcolinux.info>
+# Contributor: Erik Dubois & Brad Heffernan (ArcoLinux Team)
 
-# OLD
-# pkgname=arcolinux-welcome-app
-# NEW
 pkgname=blue-archive-welcome-app
-
-pkgver=24.05.01
+_pkgname=blue-archive-linux-welcome-app
+pkgver=1.0.0
 pkgrel=1
-
-# OLD
-# pkgdesc="Welcome application for ArcoLinux"
-# NEW
 pkgdesc="Welcome application for Blue Archive Linux"
-
 arch=('any')
-# OLD
-# url="https://github.com/arcolinux/arcolinux-welcome-app"
-# NEW - Put your fork's URL here
-url="https://github.com/minhmc2007/blue-archive-linux-welcome-app"
-
+url="https://github.com/minhmc2007/Blue-Archive-Linux"
 license=('GPL3')
-depends=('python-gobject' 'gtk3' 'python-psutil')
+depends=('python-gobject' 'gtk3' 'python-psutil' 'rate-mirrors' 'alacritty')
 makedepends=('git')
-source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+source=("${_pkgname}::git+https://github.com/minhmc2007/${_pkgname}.git")
 sha256sums=('SKIP')
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
-
-  # The 'install' command creates directories and copies files with the right permissions.
-  # Notice how we use the NEW names here.
+  cd "$_pkgname"
 
   # The Executable
   install -Dm755 "usr/local/bin/blue-archive-welcome-app" "$pkgdir/usr/local/bin/blue-archive-welcome-app"
@@ -41,6 +26,9 @@ package() {
 
   # The .desktop file for your application menu
   install -Dm644 "usr/share/applications/blue-archive-welcome-app.desktop" "$pkgdir/usr/share/applications/blue-archive-welcome-app.desktop"
+  
+  # The icon for the application menu
+  install -Dm644 "usr/share/blue-archive-welcome-app/images/bal-icon.png" "$pkgdir/usr/share/icons/hicolor/128x128/apps/blue-archive-welcome-icon.png"
 
   # The license file
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"

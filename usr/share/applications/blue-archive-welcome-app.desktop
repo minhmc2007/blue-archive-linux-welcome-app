@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Blue Archive Welcome
+GenericName=Welcome
+X-GNOME-FullName=Blue Archive Welcome
+Comment=Welcome application for Blue Archive Linux
+Exec=/usr/local/bin/blue-archive-welcome-app
+Icon=blue-archive-welcome-icon
+Terminal=false
+Type=Application
+Categories=GTK;System;Settings;
+Keywords=welcome;tool;setup;blue archive;
+StartupNotify=true
